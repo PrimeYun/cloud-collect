@@ -15,7 +15,7 @@ import com.collect.modules.sys.bean.Collect;
 import com.collect.modules.sys.service.CollectService;
 
 @RestController
-@RequestMapping("/sys/collect")
+@RequestMapping("/collect")
 public class CollectController extends BaseController {
 	
 	@Autowired
