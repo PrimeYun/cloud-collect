@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.collect.api.dao.CollectDao">
+	
+	<select id="selectList" resultType="Collect">
+		SELECT a.id, a.name, a.url, a.source, a.create_date, a.remarks, b.name as "sort" FROM collect a LEFT JOIN sort b ON b.id = a.sort_id
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO	collect(name, url, source, create_date, remarks, sort_id) VALUES(#{name}, #{url}, #{source}, #{createDate}, #{remarks}, #{sortId})
+	</insert>
+	
+</mapper>

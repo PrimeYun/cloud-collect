@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.collect.modules.**.dao")
+@MapperScan("com.collect.api.dao")
 public class MybatisConfig {
 
 }

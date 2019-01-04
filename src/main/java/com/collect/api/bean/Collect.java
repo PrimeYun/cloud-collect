@@ -1,4 +1,4 @@
-package com.collect.modules.sys.bean;
+package com.collect.api.bean;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ public class Collect implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private String id;
+	private Integer id;
 	
 	private String name;
 	
@@ -18,7 +18,33 @@ public class Collect implements Serializable {
 	
 	private String remarks;
 	
-	private Integer status;
+	private Integer sortId;
+	
+	private String sort;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getSortId() {
+		return sortId;
+	}
+
+	public void setSortId(Integer sortId) {
+		this.sortId = sortId;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
 
 	public String getSource() {
 		return source;
@@ -34,14 +60,6 @@ public class Collect implements Serializable {
 
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -66,14 +84,6 @@ public class Collect implements Serializable {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
-	}
-
-	public Integer getStatus() {
-		return status;
-	}
-
-	public void setStatus(Integer status) {
-		this.status = status;
 	}
 
 }
