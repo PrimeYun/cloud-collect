@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.collect.api.bean.Oss;
 import com.collect.api.dao.OssDao;
-import com.collect.api.oss.config.CloudStorageConfig;
 import com.collect.common.base.BaseService;
 import com.collect.common.utils.IdGen;
 
@@ -20,7 +19,7 @@ public class OssService extends BaseService<OssDao, Oss>{
 		return true;
 	}
 	
-	private CloudStorageConfig getCloudStorageConfig() {
-		return configService.getConfigObject("oss.config", CloudStorageConfig.class);
-	}
+//	private CloudStorageConfig getCloudStorageConfig() {
+//		return configService.getConfigObject("oss.config", CloudStorageConfig.class);
+//	}
 }
