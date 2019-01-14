@@ -1,6 +1,10 @@
 package com.collect.api.service;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +17,9 @@ import com.collect.common.utils.IdGen;
 
 @Service
 public class OssService extends BaseService<OssDao, Oss>{
+	
+	@Value("${oss.config}")
+	private String key;
 	
 	@Autowired
 	private ConfigService configService;
@@ -27,6 +34,24 @@ public class OssService extends BaseService<OssDao, Oss>{
 	}
 	
 	private CloudStorageConfig getCloudStorageConfig() {
-		return configService.getConfigObject("oss.config", CloudStorageConfig.class);
+		return configService.getConfigObject(key, CloudStorageConfig.class);
+	}
+	
+	public boolean isImage(String fileName) {
+		Pattern p = Pattern.compile("^(jpeg|jpg|png|gif|bmp|webp)([\\w-./?%&=]*)?$");
+		Matcher m = p.matcher(fileName.substring(fileName.lastIndexOf(".") + 1));
+		if (m.find()) {
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isVedio(String fileName) {
+		Pattern p = Pattern.compile("^(avi|mov|asf|wmv|navi|3gp|mkv|flv|f4v|rmvb|mp4)([\\w-./?%&=]*)?$");
+		Matcher m = p.matcher(fileName.substring(fileName.lastIndexOf(".") + 1));
+		if (m.find()) {
+			return true;
+		}
+		return false;
 	}
 }

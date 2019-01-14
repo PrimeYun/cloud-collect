@@ -3,7 +3,7 @@
 <mapper namespace="com.collect.api.dao.ConfigDao">
 	
 	<select id="selectByKey" resultType="Config">
-		SELECT id, name, ckey, cvalue, remarks FROM config WHERE ckey = {key}
+		SELECT id, name, ckey, cvalue, remarks FROM config WHERE ckey = #{key}
 	</select>
 	
 </mapper>
