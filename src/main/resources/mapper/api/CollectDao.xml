@@ -7,7 +7,7 @@
 	</select>
 	
 	<insert id="insert">
-		INSERT INTO	collect(name, url, source, create_date, remarks, sort_id) VALUES(#{name}, #{url}, #{source}, #{createDate}, #{remarks}, #{sortId})
+		INSERT INTO	collect(name, url, source, create_date, remarks, sort_id) VALUES(#{name}, #{url}, #{source}, #{createDate}, #{remarks}, #{sort})
 	</insert>
 	
 </mapper>
