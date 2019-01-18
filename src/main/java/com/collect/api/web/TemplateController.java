@@ -10,4 +10,9 @@ public class TemplateController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping(value = {"/404"})
+	public String error() {
+		return "404";
+	}
 }
