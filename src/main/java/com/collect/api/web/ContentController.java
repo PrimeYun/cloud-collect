@@ -12,24 +12,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.collect.api.service.CollectService;
-import com.collect.api.vo.CollectVO;
+import com.collect.api.service.ContentService;
+import com.collect.api.vo.ContentVO;
 import com.collect.common.base.BaseController;
 
 @RestController
-@RequestMapping("/collect")
-public class CollectController extends BaseController {
+@RequestMapping("/content")
+public class ContentController extends BaseController {
 	
 	@Autowired
-	CollectService collectService;
+	ContentService contentService;
 	
 	@GetMapping("list")
 	public Object list(@RequestParam Map<String, Object> params) {
-		return success(collectService.selectPage(params));
+		return success(contentService.selectPage(params));
 	}
 	
 	@PostMapping("insert")
-	public Object insert(@RequestBody @Valid CollectVO collectVO) {
-		return collectService.create(collectVO);
+	public Object insert(@RequestBody @Valid ContentVO contentVO) {
+		return contentService.create(contentVO);
 	}
 }

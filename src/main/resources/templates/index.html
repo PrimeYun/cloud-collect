@@ -69,7 +69,7 @@
 
 	$('#roleTable').bootstrapTable({
 	    method: 'get', // 服务器数据的请求方式 get or post
-	    url: "/collect/list", // 服务器数据的加载地址
+	    url: "/content/list", // 服务器数据的加载地址
 	    striped: true, //是否显示行间隔色
 	    cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
 	    pagination: true, //是否显示分页（*）
@@ -136,7 +136,7 @@
 		
 		$.ajax({
 			type:'post',
-			url : '/collect/insert',
+			url : '/content/insert',
 			contentType: 'application/json;charset=UTF-8',
 			traditional: true,
 			data:JSON.stringify(data),

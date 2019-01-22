@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-public class CollectVO implements Serializable {
+public class ContentVO implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
