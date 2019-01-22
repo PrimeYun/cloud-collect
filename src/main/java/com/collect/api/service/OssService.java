@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +16,6 @@ import com.collect.common.utils.IdGen;
 
 @Service
 public class OssService extends BaseService<OssDao, Oss>{
-	
-	@Value("${oss.config}")
-	private String key;
 	
 	@Autowired
 	private ConfigService configService;
@@ -34,7 +30,7 @@ public class OssService extends BaseService<OssDao, Oss>{
 	}
 	
 	private CloudStorageConfig getCloudStorageConfig() {
-		return configService.getConfigObject(key, CloudStorageConfig.class);
+		return configService.getConfigObject("oss.config", CloudStorageConfig.class);
 	}
 	
 	public boolean isImage(String fileName) {

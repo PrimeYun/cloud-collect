@@ -1,16 +1,11 @@
 package com.collect.api.oss;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import com.collect.api.oss.config.CloudStorageConfig;
 import com.collect.api.service.ConfigService;
 import com.collect.common.utils.Constant;
 import com.collect.common.utils.SpringContextHolder;
 
 public class OSSFactory {
-	
-	@Value("${oss.config}")
-	private static String key;
 	
 	private static ConfigService configService;
 	
@@ -20,7 +15,7 @@ public class OSSFactory {
 	
 	public static CloudStorageService buile() {
 		
-		CloudStorageConfig config = configService.getConfigObject(key, CloudStorageConfig.class);
+		CloudStorageConfig config = configService.getConfigObject("oss.config", CloudStorageConfig.class);
 		if (null != config) {
 			if (config.getType() == Constant.CloudService.LOCAL.getValue()) {
 				return new LocalCloudStorageService(config);
