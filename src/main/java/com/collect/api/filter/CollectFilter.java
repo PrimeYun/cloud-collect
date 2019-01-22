@@ -38,7 +38,7 @@ public class CollectFilter extends OncePerRequestFilter {
 	
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 	
-	String[] excludeUrls = {"/404", "/error/**", "/css/**", "/fav/**", "/img/**", "/js/**", "/"};
+	String[] excludeUrls = {"/404", "/error/**", "/css/**", "/fav/**", "/img/**", "/js/**", "/", "/*"};
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)

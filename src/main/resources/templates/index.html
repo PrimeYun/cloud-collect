@@ -2,18 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>云收藏</title>
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
-	<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
-	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.0/bootstrap-table.min.css">
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.0/bootstrap-table.min.js"></script>
-	<!-- Latest compiled and minified Locales -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.9.0/locale/bootstrap-table-zh-CN.min.js"></script>
+  	<link rel="shortcut icon" href="fav/book.png">
+	<link rel=bookmark href="fav/book.png" type=image/x-icon>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap-table.js"></script>
+	<script src="js/bootstrap-table-zh-CN.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-table.css">
 </head>
 <body>
 
@@ -49,17 +46,6 @@ $('#roleTable').bootstrapTable({
     cardView: false,
     detailView: false, //是否显示详细视图
     smartDisplay: false,
-    toolbarAlign: 'right',// 指定 toolbar 水平方向的位置。'left' 或 'right'
-    paginationDetailHAlign: 'left',//指定 分页详细信息 在水平方向的位置。'left' 或 'right'。
-    showHeader: true,//是否显示列头。
-    trimOnSearch: true,//设置为 true 将自动去掉搜索字符的前后空格。
-    rowStyle: function (row, index) {
-        var style = {
-            // css: { 'height': '10px', 'font-size': 'small', 'classes':'danger'}
-        };
-
-        return style;
-    },
     responseHandler: function(res) {
     	return {
     		"rows" : res.data.list,
