@@ -30,6 +30,7 @@ public class ContentController extends BaseController {
 	
 	@PostMapping("insert")
 	public Object insert(@RequestBody @Valid ContentVO contentVO) {
-		return contentService.create(contentVO);
+		contentService.create(contentVO);
+		return success();
 	}
 }
