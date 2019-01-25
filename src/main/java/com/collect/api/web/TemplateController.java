@@ -20,4 +20,9 @@ public class TemplateController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping(value = {"/book"})
+	public String book() {
+		return "book";
+	}
 }
