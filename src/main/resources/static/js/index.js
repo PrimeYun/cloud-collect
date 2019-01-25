@@ -94,5 +94,5 @@ var responseHandler = function (e) {
 	}
 	
 	$(".btn-link").click(function() {
-		window.location.href="/book";
+		alert("正在建设中");
 	})
