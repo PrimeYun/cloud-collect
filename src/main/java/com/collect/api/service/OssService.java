@@ -12,6 +12,7 @@ import com.collect.api.dao.OssDao;
 import com.collect.api.oss.config.CloudStorageConfig;
 import com.collect.common.base.BaseService;
 import com.collect.common.utils.Constant;
+import com.collect.common.utils.HttpContextUtils;
 import com.collect.common.utils.IdGen;
 
 @Service
@@ -24,7 +25,7 @@ public class OssService extends BaseService<OssDao, Oss>{
 	public boolean insert(Oss entity) {
 		entity.setId(IdGen.getObjectId());
 		if (getCloudStorageConfig().getType() == Constant.CloudService.LOCAL.getValue()) {
-			entity.setUrl(entity.getUrl() + entity.getId());
+			entity.setUrl(HttpContextUtils.getDomain() + "/oss/" + entity.getId());
 		}
 		return super.insert(entity);
 	}

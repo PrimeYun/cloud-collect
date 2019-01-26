@@ -68,9 +68,9 @@ public class OssController extends BaseController{
 		try {
 			String fileName = oss.getName();
 			response.setContentType(getContentType(fileName));
-			if (!ossService.isImage(fileName) && !ossService.isVedio(fileName)) {
-				response.setHeader("Content-Disposition", "attachment; filename=" + new String(oss.getName().getBytes(), "iso-8859-1"));
-			}
+//			if (!ossService.isImage(fileName) && !ossService.isVedio(fileName)) {
+//				response.setHeader("Content-Disposition", "attachment; filename=" + new String(oss.getName().getBytes(), "iso-8859-1"));
+//			}
 			
 			IOUtils.copy(new FileInputStream(oss.getPath()), response.getOutputStream());
 			response.flushBuffer();
