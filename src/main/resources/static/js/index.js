@@ -35,8 +35,7 @@ var responseHandler = function (e) {
 	    queryParams: function(params) {
 	        return {
 	            pageSize: params.limit,
-	            pageNum: params.offset / params.limit + 1,
-	            token:"7b483f20403a4b998b400acac70a480e"
+	            pageNum: params.offset / params.limit + 1
 	        };
 	    },
 	    columns: [{
@@ -59,7 +58,7 @@ var responseHandler = function (e) {
 	});
 	
 	function aFormatter(value, row, index) {
-			return "<a href='" + value + "' title='单击打开连接' target='_blank'>" + value + "</a>";
+			return "<a href='" + value + "' title='单击打开链接' target='_blank'>" + value + "</a>";
 	}
 	
 	function submit() {

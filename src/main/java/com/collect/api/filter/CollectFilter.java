@@ -19,6 +19,7 @@ import com.collect.api.bean.UserToken;
 import com.collect.api.service.UserService;
 import com.collect.api.service.UserTokenService;
 import com.collect.common.base.Result;
+import com.collect.common.utils.Constant;
 import com.collect.common.utils.HttpContextUtils;
 import com.collect.common.utils.JsonMapper;
 import com.collect.common.utils.StringUtils;
@@ -38,7 +39,7 @@ public class CollectFilter extends OncePerRequestFilter {
 	
 	private AntPathMatcher antPathMatcher = new AntPathMatcher();
 	
-	String[] excludeUrls = {"/404", "/error/**", "/css/**", "/fav/**", "/img/**", "/js/**", "/", "/*"};
+	String[] excludeUrls = {"/404", "/error/**", "/css/**", "/fav/**", "/img/**", "/js/**", "/"};
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -72,6 +73,8 @@ public class CollectFilter extends OncePerRequestFilter {
 			renderToUnauthorized(response, "账户锁定");
 			return;
 		}
+		
+		request.setAttribute(Constant.USER_INFO, user);
 		
 		filterChain.doFilter(request, response);
 		

@@ -2,7 +2,7 @@ package com.collect.common.utils;
 
 public class Constant {
 	
-	public static final int SUPER_ADMIN = 1;
+	public static final String USER_INFO = "CLOUD_COLLECT";
 
 	// 云服务商
 	public enum CloudService {
