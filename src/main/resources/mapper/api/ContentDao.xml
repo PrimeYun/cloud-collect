@@ -6,6 +6,10 @@
 		SELECT a.id, a.name, a.url, a.source, a.create_date, a.remarks, b.name as "sort" FROM content a LEFT JOIN sort b ON b.id = a.sort_id
 	</select>
 	
+	<select id="selectById" resultType="Content">
+		SELECT * FROM content WHERE id = #{id}
+	</select>
+	
 	<insert id="insert">
 		INSERT INTO	content(name, url, source, create_date, remarks, sort_id) VALUES(#{name}, #{url}, #{source}, #{createDate}, #{remarks}, #{sort})
 	</insert>

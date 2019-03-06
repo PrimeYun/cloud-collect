@@ -9,15 +9,11 @@ import com.collect.api.bean.UserToken;
 public class LoginService {
 	
 	@Autowired
-	private RedisService redisService;
-	
-	@Autowired
 	private UserTokenService tokenService;
 	
 	public String login(String username) {
 		if ("zhang".equals(username)) {
 			UserToken userToken = tokenService.createToken("123");
-			redisService.setString(userToken.getToken(), userToken);
 			return userToken.getToken();
 		}
 		return null;

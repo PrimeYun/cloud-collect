@@ -6,4 +6,6 @@ import com.collect.common.base.BaseDao;
 public interface ContentDao extends BaseDao<Content> {
 	
 	Integer insertCollect(Content collect);
+	
+	Content selectById(Integer id);
 }

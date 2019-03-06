@@ -25,7 +25,12 @@ public class ContentController extends BaseController {
 	
 	@GetMapping("list")
 	public Object list(@RequestParam Map<String, Object> params) {
-		return success(contentService.selectPage(params));
+		return success(contentService.selectList(params));
+	}
+	
+	@GetMapping("get")
+	public Object get(Integer id) {
+		return success(contentService.selectById(id));
 	}
 	
 	@PostMapping("insert")

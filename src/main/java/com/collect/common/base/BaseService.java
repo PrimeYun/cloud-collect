@@ -78,11 +78,11 @@ public abstract class BaseService<D extends BaseDao<T>, T> {
 	public Long selectCount(Map<String, Object> params) {
 		return dao.selectCount(params);
 	}
-
+	
 	public List<T> selectList(Map<String, Object> params) {
 		return dao.selectList(params);
 	}
-
+	
 	public Page<T> selectPage(Map<String, Object> params) {
 		Query query = new Query(params);
 		PageHelper.startPage(query.getPageNum(), query.getPageSize());
