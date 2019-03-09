@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TemplateController {
 	
-	@RequestMapping(value = {"/"})
+	@RequestMapping(value = {"/home"})
 	public String home() {
 		return "home";
 	}
@@ -16,7 +16,7 @@ public class TemplateController {
 		return "404";
 	}
 	
-	@RequestMapping(value = {"/index"})
+	@RequestMapping(value = {"/"})
 	public String index() {
 		return "index";
 	}
