@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,12 +19,10 @@ import cn.hutool.core.bean.BeanUtil;
 @CacheConfig(cacheNames = "ContentService")
 public class ContentService extends BaseService<ContentDao, Content> {
 	
-	@Cacheable(key = "#p0")
 	public List<Content> selectList(Map<String, Object> params) {
 		return dao.selectList(params);
 	}
 	
-	@CacheEvict(key = "#p0", allEntries = true)
 	@Transactional(readOnly = false)
 	public void create(ContentVO collectVO) {
 		Content content = new Content();

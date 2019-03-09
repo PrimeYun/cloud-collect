@@ -25,7 +25,7 @@ public class ContentController extends BaseController {
 	
 	@GetMapping("list")
 	public Object list(@RequestParam Map<String, Object> params) {
-		return success(contentService.selectList(params));
+		return success(contentService.selectPage(params));
 	}
 	
 	@GetMapping("get")
