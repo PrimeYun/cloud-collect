@@ -92,14 +92,8 @@ var responseHandler = function (e) {
 	
 	function AddFuntionAlty(value, row, index) {
 		return[
-			'<button id="TableDelete" type="button" class="btn btn-default">删除<button/>'
-		].join('')
-	}
-	
-	function AddFuntionAlty(value, row, index) {
-		return[
 			'<button id="TableDelete" type="button" class="btn btn-default">删除</button>'
-		].join('');
+		].join('')
 	}
 	
 	function submit() {
@@ -130,10 +124,6 @@ var responseHandler = function (e) {
 				}
 			}
 		})
-		
-	}
-	
-	function deDelete(arr) {
 		
 	}
 	
