@@ -31,7 +31,4 @@ public class ContentService extends BaseService<ContentDao, Content> {
 		super.insert(content);
 	}
 	
-	public Content selectById(Integer id) {
-		return dao.selectById(id);
-	}
 }

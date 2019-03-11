@@ -7,6 +7,30 @@ var responseHandler = function (e) {
 	    }
 	    
 	}
+	
+	window.operateEvents = {
+		"click #TableDelete":function(e, value, row, index) {
+//			$(this).parent().parent().remove();
+			var data = {
+				id : row.id
+			}
+			$.ajax({
+				type:'post',
+				url : '/content/delete',
+				contentType: 'application/json;charset=UTF-8',
+				traditional: true,
+				data:JSON.stringify(data),
+				dataType:'json',
+				success:function(data) {
+					if (data.code == 200) {
+						$('#roleTable').bootstrapTable('hideRow', {index:index});
+					} else {
+						alert(data.msg);
+					}
+				}
+			})
+		}
+	}
 
 	$('#roleTable').bootstrapTable({
 	    method: 'get', // 服务器数据的请求方式 get or post
@@ -54,6 +78,11 @@ var responseHandler = function (e) {
 	    }, {
 	        field: 'sort',
 	        title: '分类'
+	    }, {
+	    	fieId: 'Button',
+	    	title: '操作',
+	    	events: operateEvents,
+	    	formatter:AddFuntionAlty
 	    }]
 	});
 	
@@ -61,11 +90,23 @@ var responseHandler = function (e) {
 			return "<a href='" + value + "' title='单击打开链接' target='_blank'>" + value + "</a>";
 	}
 	
+	function AddFuntionAlty(value, row, index) {
+		return[
+			'<button id="TableDelete" type="button" class="btn btn-default">删除<button/>'
+		].join('')
+	}
+	
+	function AddFuntionAlty(value, row, index) {
+		return[
+			'<button id="TableDelete" type="button" class="btn btn-default">删除</button>'
+		].join('');
+	}
+	
 	function submit() {
 		var name = $(":input[name = 'name']").val();
 		var url = $(":input[name = 'url']").val();
 		var source = $(":input[name = 'source']").val();
-		var sort = parseInt($(":input[name = 'sort']").val());
+		var sort = parseInt($("select").val());
 		
 		var data = {
 				name : name,
@@ -89,6 +130,10 @@ var responseHandler = function (e) {
 				}
 			}
 		})
+		
+	}
+	
+	function deDelete(arr) {
 		
 	}
 	

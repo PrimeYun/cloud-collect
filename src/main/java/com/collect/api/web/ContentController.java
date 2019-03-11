@@ -28,14 +28,15 @@ public class ContentController extends BaseController {
 		return success(contentService.selectPage(params));
 	}
 	
-	@GetMapping("get")
-	public Object get(Integer id) {
-		return success(contentService.selectById(id));
-	}
-	
 	@PostMapping("insert")
 	public Object insert(@RequestBody @Valid ContentVO contentVO) {
 		contentService.create(contentVO);
+		return success();
+	}
+	
+	@PostMapping("delete")
+	public Object delete(@RequestBody Map<String, Integer> params) {
+		contentService.deleteById(params.get("id"));
 		return success();
 	}
 }
