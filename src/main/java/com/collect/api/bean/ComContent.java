@@ -2,7 +2,7 @@ package com.collect.api.bean;
 
 import java.io.Serializable;
 
-public class Content implements Serializable {
+public class ComContent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	

@@ -5,19 +5,19 @@ import com.google.gson.Gson;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.collect.api.bean.Config;
-import com.collect.api.dao.ConfigDao;
+import com.collect.api.bean.SysConfig;
+import com.collect.api.dao.SysConfigDao;
 import com.collect.common.base.BaseService;
 
 @Service
-public class ConfigService extends BaseService<ConfigDao,Config> {
+public class SysConfigService extends BaseService<SysConfigDao,SysConfig> {
 	
-	public Config selectByKey(String key) {
+	public SysConfig selectByKey(String key) {
 		return dao.selectByKey(key);
 	}
 	
 	public String getValue(String key) {
-		Config config = this.selectByKey(key);
+		SysConfig config = this.selectByKey(key);
 		return config == null ? null : config.getcValue();
 	}
 	

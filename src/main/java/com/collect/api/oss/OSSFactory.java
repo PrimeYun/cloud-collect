@@ -1,16 +1,16 @@
 package com.collect.api.oss;
 
 import com.collect.api.oss.config.CloudStorageConfig;
-import com.collect.api.service.ConfigService;
+import com.collect.api.service.SysConfigService;
 import com.collect.common.utils.Constant;
 import com.collect.common.utils.SpringContextHolder;
 
 public class OSSFactory {
 	
-	private static ConfigService configService;
+	private static SysConfigService configService;
 	
 	static {
-		OSSFactory.configService = SpringContextHolder.getBean(ConfigService.class);
+		OSSFactory.configService = SpringContextHolder.getBean(SysConfigService.class);
 	}
 	
 	public static CloudStorageService buile() {

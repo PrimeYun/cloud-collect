@@ -19,7 +19,7 @@ import com.collect.common.utils.IdGen;
 public class OssService extends BaseService<OssDao, Oss>{
 	
 	@Autowired
-	private ConfigService configService;
+	private SysConfigService configService;
 	
 	@Transactional(readOnly = false)
 	public boolean insert(Oss entity) {

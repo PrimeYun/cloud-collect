@@ -2,7 +2,7 @@ package com.collect.api.bean;
 
 import java.io.Serializable;
 
-public class Config implements Serializable {
+public class SysConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
