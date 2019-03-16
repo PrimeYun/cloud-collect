@@ -8,14 +8,14 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommonService {
+public class RedisService {
 	
 	@Autowired
-	private StringRedisTemplate redisTemplate;
+	private StringRedisTemplate stringTemplate;
 	
 	public Map<String, Object> getViewNum() {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("viewNum", redisTemplate.opsForValue().increment("views", 1));
+		result.put("viewNum", stringTemplate.opsForValue().increment("views", 1));
 		return result;
 	}
 	

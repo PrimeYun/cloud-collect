@@ -1,6 +1,6 @@
 	$.ajax({
 		type:'get',
-		url : '/common/num',
+		url : '/redis/num',
 		dataType:'json',
 		success:function(data) {
 			if (data.code == 200) {

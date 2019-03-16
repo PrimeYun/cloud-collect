@@ -5,19 +5,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.collect.api.service.CommonService;
+import com.collect.api.service.RedisService;
 import com.collect.common.base.BaseController;
 
 @RestController
-@RequestMapping("/common")
-public class CommonController extends BaseController {
+@RequestMapping("/redis")
+public class RedisController extends BaseController {
 	
 	@Autowired
-	private CommonService commonService;
+	private RedisService redisService;
 	
 	@GetMapping("num")
 	public Object num() {
-		return success(commonService.getViewNum());
+		return success(redisService.getViewNum());
 	}
 	
 }

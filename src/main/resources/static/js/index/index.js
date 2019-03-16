@@ -120,6 +120,10 @@ var responseHandler = function (e) {
 			dataType:'json',
 			success:function(data) {
 				if (data.code == 200) {
+					$(":input[name = 'name']").val("");
+					$(":input[name = 'url']").val("");
+					$(":input[name = 'source']").val("");
+					$('#myModal').modal('hide');
 					$('#roleTable').bootstrapTable('refresh');
 				} else {
 					alert(data.msg);
