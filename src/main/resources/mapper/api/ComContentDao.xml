@@ -3,7 +3,20 @@
 <mapper namespace="com.collect.api.dao.ComContentDao">
 	
 	<select id="selectList" resultType="ComContent">
-		SELECT a.id, a.name, a.url, a.source, a.create_date, a.remarks, b.name as "sort" FROM com_content a LEFT JOIN collect_sort b ON b.id = a.sort_id WHERE a.delete_flag = 0
+		SELECT 
+			a.id, a.name, a.url, a.source, a.create_date, a.remarks, b.name as "sort" 
+		FROM 
+			com_content a 
+			LEFT JOIN collect_sort b ON b.id = a.sort_id 
+		<where>
+			<if test="name != null and name != ''">
+				a.name like "%"#{name}"%"
+			</if>
+			<if test="sort != null and sort != ''">
+				AND a.sort_id = #{sort}
+			</if>
+				AND a.delete_flag = 0
+		</where>
 	</select>
 	
 	<insert id="insert">

@@ -7,7 +7,7 @@ var responseHandler = function (e) {
 	    }
 	    
 	}
-	
+
 	window.operateEvents = {
 		"click #TableDelete":function(e, value, row, index) {
 //			$(this).parent().parent().remove();
@@ -59,7 +59,9 @@ var responseHandler = function (e) {
 	    queryParams: function(params) {
 	        return {
 	            pageSize: params.limit,
-	            pageNum: params.offset / params.limit + 1
+	            pageNum: params.offset / params.limit + 1,
+	            name: $("#name").val(),
+	            sort: $("#sort option:selected").val()
 	        };
 	    },
 	    columns: [{
@@ -118,7 +120,7 @@ var responseHandler = function (e) {
 			dataType:'json',
 			success:function(data) {
 				if (data.code == 200) {
-					location.reload();
+					$('#roleTable').bootstrapTable('refresh');
 				} else {
 					alert(data.msg);
 				}
@@ -127,6 +129,6 @@ var responseHandler = function (e) {
 		
 	}
 	
-	$(".btn-link").click(function() {
-		window.location.href="/book";
-	})
+	function search(){
+		$('#roleTable').bootstrapTable('refresh');
+	}

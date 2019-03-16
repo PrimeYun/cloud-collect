@@ -12,8 +12,6 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 
 import com.collect.common.base.Result;
 
-
-
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 	
