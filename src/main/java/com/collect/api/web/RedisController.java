@@ -20,4 +20,8 @@ public class RedisController extends BaseController {
 		return success(redisService.getViewNum());
 	}
 	
+	@GetMapping("sort")
+	public Object sort() {
+		return success(redisService.getCollectSort());
+	}
 }

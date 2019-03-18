@@ -10,3 +10,20 @@
 			}
 		}
 	})
+	
+	$.ajax({
+		type:'get',
+		url : '/redis/sort',
+		dataType:'json',
+		success:function(data) {
+			if (data.code == 200) {
+				var sort = data.data.sort;
+				for (var i = 0; i < sort.length; i++) {
+					$("#sort").append('<option value=' + sort[i].id + '>' + sort[i].name +'</option>');
+					$("#editSort").append('<option value=' + sort[i].id + '>' + sort[i].name +'</option>');
+				}
+			} else {
+				alert(data.msg);
+			}
+		}
+	})
