@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.collect.api.service.RedisService;
+import com.collect.common.annotation.Access;
 import com.collect.common.base.BaseController;
 
 @RestController
@@ -15,6 +16,7 @@ public class RedisController extends BaseController {
 	@Autowired
 	private RedisService redisService;
 	
+	@Access
 	@GetMapping("num")
 	public Object num() {
 		return success(redisService.getViewNum());

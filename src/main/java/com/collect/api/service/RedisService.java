@@ -20,6 +20,7 @@ public class RedisService {
 	public Map<String, Object> getViewNum() {
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("viewNum", stringTemplate.opsForValue().increment("views", 1));
+		result.put("accessNum", stringTemplate.opsForValue().get("accessNum"));
 		return result;
 	}
 	
