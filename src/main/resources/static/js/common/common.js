@@ -1,11 +1,11 @@
 		$.ajax({
 			type:'get',
-			url : '/redis/num',
+			url : '/common/num',
 			dataType:'json',
 			success:function(data) {
 				if (data.code == 200) {
 					$(".head").append('<span style="font-size:15px">本站访问量：'+ data.data.viewNum +'</span>' + '  |  '
-							 + '<span style="font-size:15px">您是第' + data.data.accessNum +'位</span>');
+							 + '<span style="font-size:15px">访问人数：' + data.data.accessNum +'</span>');
 				} else {
 					alert(data.msg);
 				}
@@ -14,7 +14,7 @@
 
 	$.ajax({
 		type:'get',
-		url : '/redis/sort',
+		url : '/common/sort',
 		dataType:'json',
 		success:function(data) {
 			if (data.code == 200) {
