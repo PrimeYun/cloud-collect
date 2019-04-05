@@ -51,7 +51,7 @@ public class AccessAspect {
         logger.info("当前访问IP为：" + ip);
         String time = DateUtils.getDate("yyyy-MM-dd HH:mm:ss");
         if (ObjectUtil.isNull(ipService.selectByIP(ip))) {
-        	redisService.incr("accussNum");
+        	redisService.incr("accessNum");
         	IP item = new IP();
         	item.setIp(ip);
         	item.setCreateTime(time);
