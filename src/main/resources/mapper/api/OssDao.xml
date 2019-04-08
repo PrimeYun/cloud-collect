@@ -11,7 +11,7 @@
     </insert>
 	
 	<select id="selectList" resultType="Oss">
-		SELECT id, name, create_date FROM oss
+		SELECT id, name, url, create_date FROM oss
 	</select>
 	
 </mapper>

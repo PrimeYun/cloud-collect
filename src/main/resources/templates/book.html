@@ -10,11 +10,17 @@
 	<script src="js/bootstrap/bootstrap-table-zh-CN.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-table.css">
+	<style>
+		
+	</style>
 <title>书屋</title>
 </head>
 <body>
 	<table id="roleTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
-	
+	<form action="http://101.132.127.25/oss" target="" id="uploadForm" enctype="multipart/form-data">
+	　　<input id="file" type="file" name="file"/>
+	　　<input type="submit" value="upload" />
+	</form>
 	<script src="js/book/book.js"></script>
 </body>
 </html>

@@ -8,24 +8,6 @@ var responseHandler = function (e) {
 	    
 	}
 
-	window.operateEvents = {
-		"click #TableDelete":function(e, value, row, index) {
-//			$(this).parent().parent().remove();
-			$.ajax({
-				type:'get',
-				url : '/oss/' + row.id,
-				dataType:'json',
-				success:function(data) {
-					if (data.code == 200) {
-						
-					} else {
-						alert(data.msg);
-					}
-				}
-			})
-		}
-	}
-
 	$('#roleTable').bootstrapTable({
 	    method: 'get', // 服务器数据的请求方式 get or post
 	    url: "/oss/list", // 服务器数据的加载地址
@@ -60,15 +42,15 @@ var responseHandler = function (e) {
 	        field: 'name',
 	        title: '名称'
 	    }, {
-	        field: 'createDate',
-	        title: '收藏时间'
-	    }, {
-	    	fieId: 'Button',
-	    	title: '操作',
-	    	events: operateEvents,
-	    	formatter:AddFuntionAlty
+	        field: 'url',
+	        title: '链接地址',
+	        formatter: aFormatter
 	    }]
 	});
+	
+	function aFormatter(value, row, index) {
+		return "<a href='" + value + "' title='单击打开链接' target='_blank'>" + value + "</a>";
+	}
 	
 	function AddFuntionAlty(value, row, index) {
 		return[
