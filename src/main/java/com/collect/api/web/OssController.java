@@ -3,6 +3,7 @@ package com.collect.api.web;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,6 +33,11 @@ public class OssController extends BaseController{
 	
 	@Autowired
 	private OssService ossService;
+	
+	@GetMapping("list")
+	public Object list(@RequestParam Map<String, Object> params) {
+		return success(ossService.selectPage(params));
+	}
 	
 	@PostMapping("/post")
 	public Object post(@RequestParam("file") MultipartFile file) throws Exception {
@@ -68,9 +74,9 @@ public class OssController extends BaseController{
 		try {
 			String fileName = oss.getName();
 			response.setContentType(getContentType(fileName));
-//			if (!ossService.isImage(fileName) && !ossService.isVedio(fileName)) {
-//				response.setHeader("Content-Disposition", "attachment; filename=" + new String(oss.getName().getBytes(), "iso-8859-1"));
-//			}
+			if (!ossService.isImage(fileName) && !ossService.isVedio(fileName)) {
+				response.setHeader("Content-Disposition", "attachment; filename=" + new String(oss.getName().getBytes(), "iso-8859-1"));
+			}
 			
 			IOUtils.copy(new FileInputStream(oss.getPath()), response.getOutputStream());
 			response.flushBuffer();

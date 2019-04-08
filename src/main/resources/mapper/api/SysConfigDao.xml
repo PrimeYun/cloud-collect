@@ -3,7 +3,7 @@
 <mapper namespace="com.collect.api.dao.SysConfigDao">
 	
 	<select id="selectByKey" resultType="SysConfig">
-		SELECT id, name, ckey, cvalue, remarks FROM config WHERE ckey = #{key}
+		SELECT id, name, ckey, cvalue, remarks FROM sys_config WHERE ckey = #{key}
 	</select>
 	
 </mapper>

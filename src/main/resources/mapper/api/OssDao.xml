@@ -10,4 +10,8 @@
         INSERT INTO oss (id, name, url, path, suffix, create_date)VALUES (#{id}, #{name}, #{url}, #{path}, #{suffix}, #{createDate})
     </insert>
 	
+	<select id="selectList" resultType="Oss">
+		SELECT id, name, create_date FROM oss
+	</select>
+	
 </mapper>

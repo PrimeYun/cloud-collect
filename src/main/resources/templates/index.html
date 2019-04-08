@@ -12,14 +12,20 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-table.css">
 	<style>
-		
+		.other {
+			margin-left:20px
+		}
 	</style>
 </head>
 <body>
 	<div style="text-align:center" class="head">
 		<h2>WELCOME</h2>
 	</div>
-   
+   	
+   	<div class="other">
+  		<a href="/book">友情链接</a>
+  	</div>
+   	
 	<!-- 模态框（Modal） -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -85,13 +91,13 @@
         </div>       
 
         <div id="toolbar" class="btn-group">
-            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" style="margin-bottom:10px">
                 <span aria-hidden="true"></span>新增
             </button>
         </div>
         <table id="roleTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
     </div>
-  
+  	
 	<script src="js/index/index.js"></script>
 	<script src="js/common/common.js"></script>
 </body>
