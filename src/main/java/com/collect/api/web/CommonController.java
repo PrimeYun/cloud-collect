@@ -14,16 +14,27 @@ import com.collect.common.base.BaseController;
 public class CommonController extends BaseController {
 	
 	@Autowired
-	private CommonService redisService;
+	private CommonService commonService;
+	
+//	@Access
+//	@GetMapping("num")
+//	public Object num() {
+//		return success(commonService.getViewNum());
+//	}
+//	
+//	@GetMapping("sort")
+//	public Object sort() {
+//		return success(commonService.getSort());
+//	}
+//	
+//	@GetMapping("weather")
+//	public Object weather() {
+//		return success(commonService.getWeather());
+//	}
 	
 	@Access
-	@GetMapping("num")
-	public Object num() {
-		return success(redisService.getViewNum());
-	}
-	
-	@GetMapping("sort")
-	public Object sort() {
-		return success(redisService.getCollectSort());
+	@GetMapping("get")
+	public Object get() {
+		return success(commonService.get());
 	}
 }
