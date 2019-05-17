@@ -60,8 +60,9 @@ public class CommonService {
 		WeatherResponse item = null;
 		HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
 		String ipAddress = IPUtils.getIpAddr(request);
-		// 本地无法获取正确的天气信息，默认为北京
-		// String ipAddress = "222.186.125.185";
+		// 本地无法获取正确的天气信息，默认为镇江
+		if ("0:0:0:0:0:0:0:1".equals(ipAddress))
+			ipAddress = "222.186.125.185";
 		String value = redisService.get("weather:" + ipAddress);
 		
 		if (StringUtil.isEmpty(value)) {

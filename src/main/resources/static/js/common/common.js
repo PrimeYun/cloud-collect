@@ -14,7 +14,6 @@
 		})		
 	
 	function num(data) {
-		console.log(data);
 		$(".head").append('<span style="font-size:15px">本站访问量：'+ data.viewNum +'</span>' + '  |  '
 				 + '<span style="font-size:15px">访问人数：' + data.accessNum +'</span>');
 	}
@@ -30,4 +29,8 @@
 		$(".weather").append('<p>'+ data.city + '</p><span>' + data.data[0].week + '</span><span>' + data.data[0].date
 				+ '</span><span>' + data.data[0].wea + '</span><span>空气质量：' + data.data[0].air_level + '</span>');
 		
+	}
+	
+	function exportExcel() {
+		window.open("/content/export");
 	}
