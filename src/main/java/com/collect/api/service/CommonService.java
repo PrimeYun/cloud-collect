@@ -67,7 +67,7 @@ public class CommonService {
 		if (StringUtil.isEmpty(value)) {
 			String location = this.getLocation(ipAddress);
 			value = HttpUtil.get(configService.getValue("weather.url") + location);
-			redisService.setAndExp("weather:" + ipAddress, value, 60000);
+			redisService.set("weather:" + ipAddress, value);
 		}
 		
 		item = JSONObject.parseObject(value, WeatherResponse.class);
