@@ -9,11 +9,11 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import com.collect.api.bean.IP;
 import com.collect.api.service.IPService;
-import com.collect.common.service.RedisService;
 import com.collect.common.utils.DateUtils;
 import com.collect.common.utils.HttpContextUtils;
 import com.collect.common.utils.IPUtils;
@@ -35,7 +35,7 @@ public class AccessAspect {
 	private IPService ipService;
 	
 	@Autowired
-	private RedisService redisService;
+	private StringRedisTemplate stringTemplate;
 	
 	@Pointcut("@annotation(com.collect.common.annotation.Access)")
 	public void pointcut() {
@@ -51,7 +51,7 @@ public class AccessAspect {
         logger.info("当前访问IP为：" + ip);
         String time = DateUtils.getDate("yyyy-MM-dd HH:mm:ss");
         if (ObjectUtil.isNull(ipService.selectByIP(ip))) {
-        	redisService.incr("accessNum");
+        	stringTemplate.opsForValue().increment("accessNum", 1);
         	IP item = new IP();
         	item.setIp(ip);
         	item.setCreateTime(time);

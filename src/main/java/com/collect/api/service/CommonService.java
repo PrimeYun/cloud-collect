@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import com.collect.api.bean.CollectSort;
 import com.collect.api.bean.IpAddressInfo;
 import com.collect.api.bean.WeatherResponse;
-import com.collect.common.service.RedisService;
 import com.collect.common.utils.HttpContextUtils;
 import com.collect.common.utils.IPUtils;
 import com.github.pagehelper.util.StringUtil;
@@ -30,7 +30,7 @@ public class CommonService {
 	private CollectSortService sortService;
 	
 	@Autowired
-	private RedisService redisService;
+	private StringRedisTemplate stringTemplate;
 	
 	@Autowired
 	private SysConfigService configService;
@@ -45,8 +45,8 @@ public class CommonService {
 	
 	private Map<String, Object> getViewNum() {
 		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("viewNum", redisService.incr("views"));
-		result.put("accessNum", redisService.get("accessNum"));
+		result.put("viewNum", stringTemplate.opsForValue().increment("views", 1));
+		result.put("accessNum", stringTemplate.opsForValue().get("accessNum"));
 		return result;
 	}
 	
@@ -63,12 +63,12 @@ public class CommonService {
 		// 本地无法获取正确的天气信息，默认为镇江
 		if ("0:0:0:0:0:0:0:1".equals(ipAddress))
 			ipAddress = "222.186.125.185";
-		String value = redisService.get("weather:" + ipAddress);
+		String value = stringTemplate.opsForValue().get("weather:" + ipAddress);
 		
 		if (StringUtil.isEmpty(value)) {
 			String location = this.getLocation(ipAddress);
 			value = HttpUtil.get(configService.getValue("weather.url") + location);
-			redisService.set("weather:" + ipAddress, value);
+			stringTemplate.opsForValue().set("weather:" + ipAddress, value);
 		}
 		
 		item = JSONObject.parseObject(value, WeatherResponse.class);
