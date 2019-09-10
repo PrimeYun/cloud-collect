@@ -11,12 +11,34 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-table.css">
 	<style>
+		#upload {
+			text-align:center;
+			padding: 20px 0px 30px 0px; 
+		}
+		.a-upload {
+		    overflow: hidden;
+		    display: inline-block;
+		   
+		}
 		
 	</style>
 <title>书屋</title>
 </head>
 <body>
+	<div id="upload">
+		<!--  
+		<progress id="progressBar" value="0" max="100" style="width: 300px;"></progress>
+		<span id="percentage"></span><span id="time"></span>
+		<br /><br /> -->
+		<div class="a-upload">
+			<input type="file" id="file" name="myfile" />
+		</div>
+		<input type="button" onclick="UpladFile()" value="上传" />
+		<input type="button" onclick="cancleUploadFile()" value="取消" />
+	</div>
+	
 	<table id="roleTable" data-mobile-responsive="true" class="mb-bootstrap-table text-nowrap"></table>
 	<script src="js/book/book.js"></script>
+	<script src="js/book/upload.js"></script>
 </body>
 </html>
